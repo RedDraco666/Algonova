@@ -23,7 +23,9 @@ class GameSprite(sprite.Sprite):
 
 player_top = GameSprite('Ping Pong\\platform.png', 200, 10, 4, 150, 50)
 player_bottom = GameSprite('Ping Pong\\platform.png', 200, 640, 4, 150, 50)
-ball = GameSprite('Ping Pong\\bola.png', 200, 350, 4, 50, 50)
+ball = GameSprite('Ping Pong\\bola.png', 200, 350, 3, 50, 50)
+
+clock = time.Clock()
 
 while True:
     for e in event.get():
@@ -33,4 +35,9 @@ while True:
     player_top.reset()
     player_bottom.reset()
     ball.reset()
+
+    ball.rect.x += ball.speed
+    ball.rect.y += ball.speed
+
     display.update()
+    clock.tick(60)
